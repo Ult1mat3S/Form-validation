@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
     <script src="main.js" defer></script>
-    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="globals.css" />
 </head>
 
 <body>
@@ -15,15 +15,38 @@
         <p>
             <label for="email">
                 <span>Email:</span>
-                <input type="email" id="email" name="email" required minlength="8">
+                <input type="email" id="email" name="email" minlength="8" required />
                 <span class="error" aria-live="polite"></span>
             </label>
         </p>
-        <p><label for="zipcode">
+        <p>
+            <label for="country">
+                <span>Country:</span>
+                <input type="text" id="country" name="country" pattern="[A-Za-z]+" required />
+                <span class=" error" aria-live="polite"></span>
+            </label>
+        </p>
+        <p>
+            <label for="zipcode">
                 <span>Zip Code:</span>
-                <input type="text" pattern="[0-9]{5}" id="zipcode" name="zipcode" maxlength="5">
+                <input type="text" pattern="[0-9]{5}" id="zipcode" name="zipcode" maxlength="5" required />
                 <span class="error" aria-live="polite"></span>
-            </label></p>
+            </label>
+        </p>
+        <p>
+            <label for="password">
+                <span>Password:</span>
+                <input type="password" id="password" name="password" required />
+                <span class="error" aria-live="polite"></span>
+            </label>
+        </p>
+        <p>
+            <label for="password-confirm">
+                <span>Confirm Password:</span>
+                <input type="password" id="password-confirm" name="password-confirm" required />
+                <span class="error" aria-live="polite"></span>
+            </label>
+        </p>
         <button>Submit</button>
     </form>
 </body>

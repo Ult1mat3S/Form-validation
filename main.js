@@ -6,6 +6,9 @@ const emailError = document.querySelector('#email + span.error');
 const zipcode = document.getElementById('zipcode');
 const zipcodeError = document.querySelector('#zipcode + span.error');
 
+const country = document.getElementById('country');
+const countryError = document.querySelector('#country + span.error');
+
 email.addEventListener('input', function (event) {
     if (email.validity.valid) {
         emailError.innerHTML = '';
@@ -24,6 +27,15 @@ zipcode.addEventListener('input', function (event) {
     }
 });
 
+country.addEventListener('input', function (event) {
+    if (country.validity.valid) {
+        countryError.innerHTML = '';
+        countryError.className = 'error';
+    } else {
+        showCountryError();
+    }
+});
+
 form.addEventListener('submit', function (event) {
     if (!email.validity.valid) {
         showEmailError();
@@ -31,6 +43,10 @@ form.addEventListener('submit', function (event) {
     }
     if (!zipcode.validity.valid) {
         showZipcodeError();
+        event.preventDefault();
+    }
+    if (!country.validity.valid) {
+        showCountryError();
         event.preventDefault();
     }
 });
@@ -59,8 +75,12 @@ function showZipcodeError() {
     zipcodeError.className = 'error active';
 }
 
-
-
-
-
-
+function showCountryError() {
+    if (country.validity.valueMissing) {
+        countryError.textContent = 'You need to enter a country.';
+    }
+    else if (country.validity.patternMismatch) {
+        countryError.textContent = "Entered value needs to be a valid country."
+    }
+    countryError.className = 'error active';
+}
