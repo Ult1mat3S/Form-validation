@@ -9,6 +9,12 @@ const zipcodeError = document.querySelector('#zipcode + span.error');
 const country = document.getElementById('country');
 const countryError = document.querySelector('#country + span.error');
 
+const password = document.getElementById('password');
+const passwordError = document.querySelector('#password + span.error');
+
+const passwordConfirm = document.getElementById('passwordConfirm');
+const passwordConfirmError = document.querySelector('#passwordConfirm + span.error');
+
 email.addEventListener('input', function (event) {
     if (email.validity.valid) {
         emailError.innerHTML = '';
@@ -36,6 +42,15 @@ country.addEventListener('input', function (event) {
     }
 });
 
+password.addEventListener('input', function (event) {
+    if (password.validity.valid) {
+        passwordError.innerHTML = '';
+        passwordError.className = 'error';
+    } else {
+        showPasswordError();
+    }
+});
+
 form.addEventListener('submit', function (event) {
     if (!email.validity.valid) {
         showEmailError();
@@ -48,6 +63,16 @@ form.addEventListener('submit', function (event) {
     if (!country.validity.valid) {
         showCountryError();
         event.preventDefault();
+    }
+    if (!password.validity.valid)
+    {
+ 	   showPasswordError();
+  	  event.preventDefault();
+    }
+        if (!passwordConfirm.validity.valid)
+    {
+ 	   showPasswordConfirmError();
+  	  event.preventDefault();
     }
 });
 
@@ -83,4 +108,30 @@ function showCountryError() {
         countryError.textContent = "Entered value needs to be a valid country."
     }
     countryError.className = 'error active';
+}
+
+function showPasswordError() {
+    if (password.validity.valueMissing) {
+        passwordError.textContent = 'You need to enter a password.';
+    }
+    else if (passwordConfirm.value === password.value)
+    {
+    password.setCustomValidity('');
+    } else {
+    password.setCustomValidity('Passwords do not match');
+    }
+    passwordError.className = 'error active';
+}
+
+function showPasswordConfirmError() {
+    if (passwordConfirm.validity.valueMissing) {
+        passwordConfirmError.textContent = 'You need to enter a password.';
+    }
+    else if (password.value === passwordConfirm.value)
+    {
+    passwordConfirm.setCustomValidity('');
+    } else {
+    passwordConfirm.setCustomValidity('Passwords do not match');
+    }
+    passwordConfirmError.className = 'error active';
 }
