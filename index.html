@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form novalidate>
+    <form id="form-input" novalidate>
         <p>
             <label for="email">
                 <span>Email:</span>
@@ -23,7 +23,7 @@
             <label for="country">
                 <span>Country:</span>
                 <input type="text" id="country" name="country" pattern="[A-Za-z]+" required />
-                <span class=" error" aria-live="polite"></span>
+                <span class="error" aria-live="polite"></span>
             </label>
         </p>
         <p>
@@ -36,19 +36,27 @@
         <p>
             <label for="password">
                 <span>Password:</span>
-                <input type="password" id="password" name="password" required />
+                <input type="password" id="password" name="password" minlength="6" maxlength="24" required />
                 <span class="error" aria-live="polite"></span>
             </label>
         </p>
         <p>
             <label for="password-confirm">
                 <span>Confirm Password:</span>
-                <input type="password" id="password-confirm" name="password-confirm" required />
+                <input type="password" id="password-confirm" name="password-confirm" minlength="6" maxlength="24"
+                    required />
                 <span class="error" aria-live="polite"></span>
             </label>
         </p>
-        <button>Submit</button>
+        <button id="myBtn">Submit</button>
     </form>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Form successfully submitted! High five!✋</h1>
+        </div>
+    </div>
 </body>
 
 </html>
