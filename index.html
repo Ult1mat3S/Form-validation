@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Validation</title>
     <script src="main.js" defer></script>
     <link rel="stylesheet" href="globals.css" />
-</head>
+  </head>
 
-<body>
-    <form id="form-input" novalidate>
-        <p>
-            <label for="email">
-                <span>Email:</span>
-                <input type="email" id="email" name="email" minlength="8" required />
-                <span class="error" aria-live="polite"></span>
-            </label>
-        </p>
-        <p>
-            <label for="country">
-                <span>Country:</span>
-                <input type="text" id="country" name="country" pattern="[A-Za-z]+" required />
-                <span class="error" aria-live="polite"></span>
-            </label>
-        </p>
-        <p>
-            <label for="zipcode">
-                <span>Zip Code:</span>
-                <input type="text" pattern="[0-9]{5}" id="zipcode" name="zipcode" maxlength="5" required />
-                <span class="error" aria-live="polite"></span>
-            </label>
-        </p>
-        <p>
-            <label for="password">
-                <span>Password:</span>
-                <input type="password" id="password" name="password" minlength="6" maxlength="24" required />
-                <span class="error" aria-live="polite"></span>
-            </label>
-        </p>
-        <p>
-            <label for="password-confirm">
-                <span>Confirm Password:</span>
-                <input type="password" id="password-confirm" name="password-confirm" minlength="6" maxlength="24"
-                    required />
-                <span class="error" aria-live="polite"></span>
-            </label>
-        </p>
-        <button id="myBtn">Submit</button>
+  <body>
+    <form id="form-input" method="post" target="_blank" novalidate>
+      <p>
+        <label for="email">
+          <span>Email:</span>
+          <input type="email" id="email" name="email" minlength="8" required />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+      <p>
+        <label for="country">
+          <span>Country:</span>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            pattern="[A-Za-z]+"
+            required
+          />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+      <p>
+        <label for="zipcode">
+          <span>Zip Code:</span>
+          <input
+            type="text"
+            pattern="[0-9]{5}"
+            id="zipcode"
+            name="zipcode"
+            maxlength="5"
+            required
+          />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+      <p>
+        <label for="password">
+          <span>Password:</span>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            minlength="6"
+            maxlength="24"
+            required
+          />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+      <p>
+        <label for="password-confirm">
+          <span>Confirm Password:</span>
+          <input
+            type="password"
+            id="password-confirm"
+            name="password-confirm"
+            minlength="6"
+            maxlength="24"
+            required
+          />
+          <span class="error" aria-live="polite"></span>
+        </label>
+      </p>
+      <button id="submit-button">Submit</button>
     </form>
-
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>Form successfully submitted! High five!✋</h1>
-        </div>
-    </div>
-</body>
-
+  </body>
 </html>
